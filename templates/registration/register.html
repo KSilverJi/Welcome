@@ -6,8 +6,8 @@
 {% block content %}
 
     <h1>회원가입</h1>
-    <span class="font-italic">아이디와 패스워드를 입력해주세요.</span>
-    &nbsp;&nbsp;<span><a href="{% url 'login' %}">로그인하기</a></span>
+    <span class="font-italic">학생회의 경우 학과 이름으로 생성해주세요. ex.융합콘텐츠학과</span>
+    &nbsp;&nbsp;<span><a href="{% url 'login' %}">이미 가입하셨나요?</a></span>
 
     {% if form.errors %}
     <div class="alert alert-danger">
@@ -16,21 +16,21 @@
     </div>
     {% endif %}
 
-    <form action="." method="post" class="card pt-3">{% csrf_token %}
+    <form action="." method="post" class="card pt-3" style="margin-top:5vh;">{% csrf_token %}
 
-        <div class="form-group row">
+        <div class="form-group row" style="justify-content:center;">
             {{ form.username|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
                 {{ form.username|add_class:"form-control"|attr:"autofocus" }}
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" style="justify-content:center;">
             {{ form.password1|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
                 {{ form.password1|add_class:"form-control" }}
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" style="justify-content:center;">
             {{ form.password2|add_label_class:"col-form-label col-sm-3 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
                 {{ form.password2|add_class:"form-control" }}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            <div class="offset-sm-3 col-sm-5">
+            <div class="offset-sm-3 col-sm-5" style="float:right;">
                 <input type="submit" value="회원가입" class="btn btn-info"/>
             </div>
         </div>

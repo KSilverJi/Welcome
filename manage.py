@@ -4,7 +4,6 @@ import os
 import sys
 
 import pickle
-from konlpy.tag import Okt
 
 def tokenizer(text):
     okt = Okt()

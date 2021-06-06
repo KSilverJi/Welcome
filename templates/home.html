@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Be.com{% endblock %}</title>
+    <title>{% block title %}Welcam{% endblock %}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
@@ -20,8 +20,8 @@
     @import url('https://fonts.googleapis.com/css?family=notosanskr.css');
 
 .nav-link.becom-nav.link-active{
-  border-bottom: 3px solid #f99b0d;
-  box-shadow: inset 0 -4px 0 #f99b0d;
+  border-bottom: 3px solid #00462a;
+  box-shadow: inset 0 -4px 0 #00462a;
   pointer-events: none;
   cursor: default;
 }
@@ -38,7 +38,7 @@ a {
   }
   a:hover{
     text-decoration: none;
-    color: #f99b0d;
+    color: #00462a;
   }
   
 .container{
@@ -55,7 +55,7 @@ a {
     align-items: center;
     margin-bottom: 12px;
 }
-/* 오늘의 감정 일기 */
+/* 오늘의 기록 */
 .today-mind{
     height: 100%;
     padding: 24px;
@@ -116,7 +116,7 @@ a {
     float: right;
 }
 .diary_submit_button{
-    background-color: #f99b0d;
+    background-color: #00462a;
     border: none;
     color: white;
     width: 104px;
@@ -142,7 +142,7 @@ a {
     width: 72px;
     height: 26px;
     background: #FFFFFF;
-    border: 2px solid #F99B0D;
+    border: 2px solid #00462a;
     box-sizing: border-box;
     border-radius: 5px;
     padding: 3px 6px;
@@ -150,7 +150,7 @@ a {
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-    color: #F99B0D;
+    color: #00462a;
     margin-left: 10px;
 }
 .class-score-text{
@@ -190,7 +190,7 @@ a {
 .mood-img{
     margin-top: 4px;
 }
-/* 짝꿍 다이어리 */
+/* 짝선짝후 다이어리 */
 .mate-diary{
     padding: 24px;
     background: #FFFFFF;
@@ -234,7 +234,7 @@ a {
 }
 .progress-bar {
     border-radius: 7px;
-    background-color: #f99b0d;
+    background-color: #00462a;
 }
 
 /*선생님 화면 css*/
@@ -335,7 +335,7 @@ a {
 
 <body style="padding-top:90px;">
         
-    <!--선생님 화면(teacher group에 있을 때)-->
+    <!--관리자 화면(teacher group에 있을 때)-->
     {% if request.user|has_group:"teacher" %} 
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: white; justify-content: space-between;">
         <a class="navbar-brand mx-5 mb-0" href="{% url 'main' %}"><img src="{% static 'img/becom_logo.png' %}" width="140"></a>
@@ -346,7 +346,7 @@ a {
             <li class="nav-item dropdown mx-1 btn " style="background-color: #ffffff;">
                 {% if user.is_active %}
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="font-family: Noto Sans KR;font-size: 16px;color: #000000;">
-                    <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %} 선생님 환영합니다!&ensp;</a>
+                    <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %} 환영합니다!&ensp;</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
                     <a class="dropdown-item" href="{% url 'password_change' %}">비밀번호 변경</a>
@@ -363,10 +363,10 @@ a {
         </ul>
     </nav>
     <div class="container" style="max-width: 95%;">
-        <!--상담신청 내역-->
+        <!--신청 내역-->
         <div class = "col1">
             <div class = "col-box">
-                <div class = "student-list">상담 신청 내역</div>
+                <div class = "student-list">뻔선배 신청 내역</div>
                 <div class = "cousel-list">
                 {% for counsel_detail in counsel.all %}
                     <div class="counsel-card">
@@ -377,12 +377,6 @@ a {
                             {% endfor %}
                             <br>
                             <span style="font-weight: bold; font-size: 15px; line-height: 17px; color: #5B5652;">{{counsel_detail.username}}</span>
-                            <span style="font-size: 12px; line-height: 16px; color: #5B5652;">2학년 6반</span>
-                            <br>
-                            <span style="font-size: 12px; line-height: 32px; color: #504B47;">상담방법</span>
-                            <br>
-                            <div class="how-box">{{counsel_detail.how}}</div>
-                            <br>
                             <span style="font-size: 12px; line-height: 32px; color: #504B47;">상담주제</span>
                             <br>
                             {% for about_item in counsel_detail.about.split %}
@@ -402,7 +396,7 @@ a {
 
         <div class="col2"> <!--학생 목록-->
             <div class="col-box">
-                <div class="student-list">반 학생들</div>
+                <div class="student-list">융합콘텐츠학과 소속</div>
                 <div class="friends-list">
                     {% for friend in class_friends.all %}
                     <div class="friend-card">
@@ -410,7 +404,7 @@ a {
                             <img src="{{friend.profile_image.url}}" width="80" height="80" style="border-radius:40px; border: 0.75px solid #C4C4C4;">
                             <div style="font-size:14px; font-weight:500; line-height: 20px; margin-top:8px;">{{friend.username}}</div>
                         </a>
-                        <div style="height: 1px; background-color: #f99b0d; margin:5px;"></div>
+                        <div style="height: 1px; background-color: #00462a; margin:5px;"></div>
                         <div style="font-weight: normal; font-size:12px;">{{friend.intro}}</div>
                     </div>
                     {% endfor %}
@@ -421,7 +415,7 @@ a {
 
 
 
-    <!--기본 화면(선생님 X)-->
+    <!--기본 화면(관리자 X)-->
     {% else %}
     <nav class="navbar navbar-expand-lg fixed-top" style="background-color: white;">
         <a class="navbar-brand mx-5 mb-0" href="{% url 'main' %}"><img src="{% static 'img/becom_logo.png' %}" width="140"></a>
@@ -435,19 +429,19 @@ a {
                 <li class="nav-item mx-1 btn">
                     <a class="nav-link becom-nav" href="{% url 'myprofile:home' %}">프로필</a></li>
                 <li class="nav-item mx-1 btn">
-                    <a class="nav-link becom-nav" href="{% url 'moodtracker:home' %}">감정 일기</a></li>
+                    <a class="nav-link becom-nav" href="{% url 'moodtracker:home' %}">매일 기록</a></li>
                 <li class="nav-item mx-1 btn">
-                    <a class="nav-link becom-nav" href="{% url 'mate:home' %}">짝꿍</a></li>
+                    <a class="nav-link becom-nav" href="{% url 'mate:home' %}">짝선짝후</a></li>
                 <li class="nav-item mx-1 btn">
-                    <a class="nav-link becom-nav" href="{% url 'forum:home' %}">게시판</a></li>
+                    <a class="nav-link becom-nav" href="{% url 'forum:home' %}">커뮤니티</a></li>
 
                 
             </ul>
 
            
             <ul class="navbar-nav">
-                <li class="nav-item" style="border: 2px solid #F99B0D;box-sizing:border-box;border-radius:10px;padding:12px 26px;">
-                    <a class="register-therapy" href="{% url 'therapy:therapy' %}" style="text-decoration:none;color:#f99b0d;font-family: Noto Sans KR;font-weight: 500;font-size: 16px;">상담 신청하기</a>
+                <li class="nav-item" style="border: 2px solid #00462a;box-sizing:border-box;border-radius:10px;padding:12px 26px;">
+                    <a class="register-therapy" href="{% url 'therapy:therapy' %}" style="text-decoration:none;color:#00462a;font-family: Noto Sans KR;font-weight: 500;font-size: 16px;">짝선배 신청하기</a>
                 </li>
             </ul>
 
@@ -478,11 +472,7 @@ a {
         <div class="row">
             <div class="col-md-6" style="margin-bottom: 24px;">
                 <div class="today-mind col-xs-5">
-                    <div class="home-title">오늘의 감정일기</div>
-                    <!--{{profile.school}}
-                    {% for friend in class_.all %}
-                        {{friend.username}}
-                    {% endfor %}-->
+                    <div class="home-title">오늘의 기록</div>
                     <div class="record-write">
                         <div class="record-date">{{year}}년 {{month}}월 {{day}}일</div>
                         <form action="{% url 'moodtracker:create' %}" enctype="multipart/form-data" method="POST">
@@ -510,11 +500,8 @@ a {
                                 </label>
                             </div>
                             <div class="content_input">
-                                <textarea placeholder=" 감정 일기 작성" onkeyup="autoTextarea(this,100)" id="text" name="content" rows="3" style="word-wrap: break-word; resize: none; width: 300px; "></textarea>  
+                                <textarea placeholder=" 다채로운 당신의 오늘을 기록해주세요" onkeyup="autoTextarea(this,100)" id="text" name="content" rows="3" style="word-wrap: break-word; resize: none; width: 300px; "></textarea>  
                                 <br>
-                            </div>
-                            <div>
-                                <input type="file" name="images" accept="image/*">
                             </div>
                             <div class="diary_submit_button_wrap">
                                 <input type="submit" class="diary_submit_button" value="저장" name="submit"/>
@@ -524,31 +511,9 @@ a {
                 </div>
             </div>
             <div class="col-md-6" style="margin-bottom: 24px;">
-                <div class="class-act col-xs-3" style="padding-left:24px;">
-                    <div style="overflow: auto;">
-                        <div class="home-title" style="display: inline-block; float:left;">우리반 활성도</div>
-                        <div class="class-level">LEVEL{{class_level}}</div>
-                    </div>
-                    <div class="class-score-text">{{class_score_text}}</div>
-                    <div class="class-level-img">
-                        {% if class_level == 1 %}
-                        <img src="{% static 'img/level1.png' %}" width="100px" alt="우리 반의 활성도">
-                        {% elif class_level == 2 %}
-                        <img src="{% static 'img/level2.png' %}" width="100px" alt="우리 반의 활성도">
-                        {% elif class_level == 3 %}
-                        <img src="{% static 'img/level3.png' %}" width="100px" alt="우리 반의 활성도">
-                        {% elif class_level == 4 %}
-                        <img src="{% static 'img/level4.png' %}" width="100px" alt="우리 반의 활성도">
-                        {% elif class_level == 5 %}
-                        <img src="{% static 'img/level5.png' %}" width="100px" alt="우리 반의 활성도">
-                        {% endif %}
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{class_score}}%">
-                        {{class_score}}%
-                        </div>
-                    </div>
-                </div>
+                <div class="today-mind col-xs-5">
+                    <div class="home-title">반모임 장소</div>
+                    <img src="https://ewhafestival2019.herokuapp.com/static/img/map_home.jpg" style="width:33vw; height:45vh; object-fit:cover;">
             </div>
         </div>
         <div class="row">
@@ -623,7 +588,7 @@ a {
         <div class="row">
             <div class="col-md-6">
                 <div class="mate-diary col-xs-3">
-                    <div class="home-title">짝꿍 친밀도</div>
+                    <div class="home-title">짝선후배 친밀도</div>
                     <div class="mate-profile-img">
                         <div class="mate-profile">
                         <a href="{% url 'myprofile:detail' mate.mate1.id %}">
@@ -663,7 +628,7 @@ a {
             </div>
             <div class="col-md-6">
                 <div class="class-hot col-xs-3">
-                    <div class="home-title" style="display:inline-block;">우리반 게시판</div>
+                    <div class="home-title" style="display:inline-block;">융합콘텐츠학과 커뮤니티</div>
                     <a href="{% url 'forum:home' %}" style="font-weight:bold; float:right; color:#7A7A7A; font-size:14px;">더보기</a>
                     <table class="" style="">
                         <thead>
@@ -676,7 +641,7 @@ a {
                             <tr height="50">
                                 <td><a href="{% url 'forum:detail' forums.id %}"></a>{{ forums.title }}</td>
                                 <td align="center"><p style="margin:1px;">{{forums.pub_date | date:"Y-m-d"}}</p></td>
-                                <td align="center"><p style="margin:1px;"><img src="{{forums.writer.profile_image.url}}" width="32" height="32" style="border-radius:16px; border: 0.5px solid #C4C4C4; margin-right:12px;">{{forums.writer}}</p></td>
+                                <td align="center"><p style="margin:1px;">{{forums.writer}}</p></td>
                             </tr>
                             {% endfor %}
                         </tbody>

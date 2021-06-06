@@ -263,21 +263,7 @@ def create_record(request):
     mood_record.pub_date_year = year
     mood_record.pub_date_month = month
     mood_record.pub_date_day = day
-
-    images = request.FILES['images']
     
-    emotion = {}
-
-    emotion = find_emotion(images, user, year, month, day) # 해당 감정 일기
-    emotion = emotion[0]
-    mood_record.anger = round(emotion['emotion']['anger']*100, 1)
-    mood_record.contempt = round(emotion['emotion']['contempt']*100, 1)
-    mood_record.disgust = round(emotion['emotion']['disgust']*100, 1)
-    mood_record.fear = round(emotion['emotion']['fear']*100, 1)
-    mood_record.happiness = round(emotion['emotion']['happiness']*100, 1)
-    mood_record.neutral = round(emotion['emotion']['neutral']*100, 1)
-    mood_record.sadness = round(emotion['emotion']['sadness']*100, 1)
-    mood_record.surprise = round(emotion['emotion']['surprise']*100, 1)
     
     filename2 = '%s_face_%s_%s_%s.png' % (user, year, month, day)
 
@@ -288,31 +274,3 @@ def create_record(request):
 
     mood_record.save()
     return redirect('/moodtracker/record/'+str(mood_record.id)) # '/moodtracker/' + +str(mood_record.id)
-
-def find_emotion(images, user, year, month, day):
-    KEY = '66b40727db3b42b2a07497598b032d19' # 자신의 Cognitive Services API KEY
-    CF.Key.set(KEY)
-
-    BASE_URL = 'https://eastus.api.cognitive.microsoft.com/face/v1.0/' # 자신의 지역에 해당하는 URL
-    CF.BaseUrl.set(BASE_URL)
-
-    img_url = images #'face_image.jpg' # 이미지 파일의 경로
-    faces = CF.face.detect(img_url,True,False,'emotion') # 중요!
-    # detect 함수는 4가지의 매개변수를 갖는다.
-    # 첫 번째 인자 : 이미지파일
-    # 두 번째 인자 : face_id의 반환 여부
-    # 세 번째 인자 : landmarks(눈,코,입 등의 위치)의 반환 여부
-    # 네 번째 인자 : 반환할 속성(연령,성별 등)
-    emotion = []
-    for face in faces:
-        emotion.append(face['faceAttributes']) # 터미널 창에 속성값들을 출력
-
-    img = Image.open(img_url) # img 변수에 이미지 파일을 넣어준다.
-    draw = ImageDraw.Draw(img)
-    for face in faces:
-        draw.rectangle(getRectangle(face), outline='red', width=2) # 인식된 얼굴들에 네모 박스 쳐주기
-    
-    filename1 = 'media/%s_face_%s_%s_%s.png' % (user, year, month, day)
-    img.save(filename1)
-
-    return emotion

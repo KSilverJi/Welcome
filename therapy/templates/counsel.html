@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Be.com - 상담신청{% endblock %}
+{% block title %}Welcam_짝선배신청{% endblock %}
 {% block extra-style %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/counsel_style.css' %}">
 <script type="text/javascript" src="../static/js/calendar.js">
@@ -15,59 +15,45 @@
 <div class="container">
 <form action="{% url 'therapy:result' %}" method="POST"> {% csrf_token %}
     <div class="col1">
-        <h1>상담방법</h1>
-            <input type="radio" id="a1" name="who" value="교사"> <label for="a1">교사</label>
-            <input type="radio" id="a2" name="who" value="교내 상담기관"> <label for="a2">교내 상담기관</label>
-            <input type="radio" id="a3" name="who" value="교외 상담기관"> <label for="a3" style="margin-right: 1%;">교외 상담기관</label>
+        <h1>MBTI</h1>
+            <input type="radio" id="a1" name="who" value="INFJ"> <label for="a1" style="margin-right: 1%;">INFJ</label>
+            <input type="radio" id="a2" name="who" value="INFP"> <label for="a2" style="margin-right: 1%;">INFP</label>
+            <input type="radio" id="a3" name="who" value="INTJ"> <label for="a3" style="margin-right: 1%;">INTJ</label>
+            <input type="radio" id="a4" name="who" value="INTP"> <label for="a4" style="margin-right: 1%;">INTP</label>
+            <input type="radio" id="a5" name="who" value="ISTJ"> <label for="a5" style="margin-right: 1%;">ISTJ</label>
+            <input type="radio" id="a6" name="who" value="ISTP"> <label for="a6" style="margin-right: 1%;">ISTP</label>
+            <input type="radio" id="a7" name="who" value="ISFJ"> <label for="a7" style="margin-right: 1%;">ISFJ</label>
+            <input type="radio" id="a8" name="who" value="ISFP"> <label for="a8" style="margin-right: 1%;">ISFP</label>
+            <input type="radio" id="a9" name="who" value="ENTP"> <label for="a9" style="margin-right: 1%;">ENTP</label>
+            <input type="radio" id="a10" name="who" value="ENTJ"> <label for="a10" style="margin-right: 1%;">ENTJ</label>
+            <input type="radio" id="a11" name="who" value="ENFP"> <label for="a11" style="margin-right: 1%;">ENFP</label>
+            <input type="radio" id="a12" name="who" value="ENFJ"> <label for="a12" style="margin-right: 1%;">ENFJ</label>
+            <input type="radio" id="a13" name="who" value="ESTP"> <label for="a13" style="margin-right: 1%;">ESTP</label>
+            <input type="radio" id="a14" name="who" value="ESTJ"> <label for="a14" style="margin-right: 1%;">ESTJ</label>
+            <input type="radio" id="a15" name="who" value="ESFP"> <label for="a15" style="margin-right: 1%;">ESFP</label>
+            <input type="radio" id="a16" name="who" value="ESFJ"> <label for="a16" style="margin-right: 1%;">ESFJ</label>
         
-        <h1>상담형태</h1>
-            <input type="radio" id="b1" name="how" value="온라인상담"> <label for="b1">온라인상담</label>
-            <input type="radio" id="b2" name="how" value="대면상담"> <label for="b2">대면상담</label>
-            <input type="radio" id="b3" name="how" value="전화상담"> <label for="b3" style="margin-right: 1%;">전화상담</label>
+            <br>
 
-        <div class="teacher">
-        <h1>상담자</h1>
-            <input type="radio" id="c1" name="teacher" value="권보아 선생님">
-            <label for="c1" style="margin-left:1%;">
-                <img src="{% static 'img/권보아.jpg' %}" width="60px" height="60px" class="teacher-img"><br>
-                권보아 선생님</label>
-            <input type="radio" id="c2" name="teacher" value="장근석 선생님">
-            <label for="c2">
-                <img src="{% static 'img/장근석.jpg' %}" width="60px" height="60px" class="teacher-img"><br>
-                장근석 선생님</label>
-            <input type="radio" id="c3" name="teacher" value="이승기 선생님">
-            <label for="c3">
-                <img src="{% static 'img/이승기.jpeg' %}" width="60px" height="60px" class="teacher-img"><br>
-                이승기 선생님</label>
-            <input type="radio" id="c4" name="teacher" value="배윤정 선생님">
-            <label for="c4">
-                <img src="{% static 'img/배윤정.jpg' %}" width="60px" height="60px" class="teacher-img"><br>
-                배윤정 선생님</label>
-            <input type="radio" id="c5" name="teacher" value="이홍기 선생님">
-            <label for="c5" style="margin-right: 0px;">
-                <img src="{% static 'img/이홍기.png' %}" width="60px" height="60px" class="teacher-img"><br>
-                이홍기 선생님</label>
-        </div>
-        
-        <h1 style="display: inline;">상담주제<span class="topic_detail">최대 3개의 주제를 선택할 수 있어요</span></h1><br>
-            <input type="checkbox" id="d1" name="about[]" value="학업"> <label for="d1">학업</label>
-            <input type="checkbox" id="d2" name="about[]" value="친구"> <label for="d2">친구</label>
-            <input type="checkbox" id="d3" name="about[]" value="스트레스"> <label for="d3">스트레스</label>
-            <input type="checkbox" id="d4" name="about[]" value="우울"> <label for="d4">우울</label>
-            <input type="checkbox" id="d5" name="about[]" value="트라우마"> <label for="d5">트라우마</label>
-            <input type="checkbox" id="d6" name="about[]" value="진로"> <label for="d6">진로</label>
-            <input type="checkbox" id="d7" name="about[]" value="가족"> <label for="d7">가족</label>
-            <input type="checkbox" id="d8" name="about[]" value="콤플렉스"> <label for="d8">콤플렉스</label>
-            <input type="checkbox" id="d9" name="about[]" value="불안"> <label for="d9">불안</label>
-            <input type="checkbox" id="d10" name="about[]" value="대인관계"> <label for="d10">대인관계</label>
+        <h1 style="display: inline;">취미<span class="topic_detail">최대 3개의 주제를 선택할 수 있어요</span></h1><br>
+            <input type="checkbox" id="d1" name="about[]" value="여행"> <label for="d1">여행</label>
+            <input type="checkbox" id="d2" name="about[]" value="게임"> <label for="d2">게임</label>
+            <input type="checkbox" id="d3" name="about[]" value="뮤지컬감상"> <label for="d3">뮤지컬 감상</label>
+            <input type="checkbox" id="d4" name="about[]" value="영화감상"> <label for="d4">영화 감상</label>
+            <input type="checkbox" id="d5" name="about[]" value="독서"> <label for="d5">독서</label>
+            <input type="checkbox" id="d6" name="about[]" value="운동"> <label for="d6">운동</label>
+            <input type="checkbox" id="d7" name="about[]" value="맛집탐방"> <label for="d7">맛집 탐방</label>
+            <input type="checkbox" id="d8" name="about[]" value="음주가무"> <label for="d8">음주가무</label>
+            <input type="checkbox" id="d9" name="about[]" value="보드게임"> <label for="d9">보드게임</label>
+            <input type="checkbox" id="d10" name="about[]" value="요리"> <label for="d10">요리</label>
 
-        <h1 style="margin-top:3%;">상세내용</h1>
+        <h1 style="margin-top:3%;">상세내용<span class="topic_detail">바라는 점을 자유롭게 작성해주세요.</span></h1>
             <input type="textarea" name="detailtext" class="input-text">
     </div>
 
     <!--캘린더/제출버튼-->
     <div class="col2">
-        <h1>상담날짜</h1>
+        <h1>반모임 날짜</h1>
         <table class="scriptCalendar">
             <thead>
                 <!--연월 표시-->

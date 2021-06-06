@@ -56,8 +56,6 @@ def main(request):
     #page = request.GET.get('page')
     #posts = paginator.get_page(page)
 
-    counsel = Counsel.objects.filter(teacher=user) #담당선생님이 현재 유저(선생님)와 같아야 한다.
-
     item={
         'profile' : profile,
         'class_friends' : class_friends,

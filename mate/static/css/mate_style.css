@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=notosanskr.css');
 /* navigation bar */
 .nav-link.becom-nav.link-active{
-    border-bottom: 3px solid #f99b0d;
-    box-shadow: inset 0 -4px 0 #f99b0d;
+    border-bottom: 3px solid #00462a;
+    box-shadow: inset 0 -4px 0 #00462a;
 }
 .nav-link.becom-nav{
     font-family: Noto Sans KR; 
@@ -18,7 +18,7 @@ a {
 }
  a:hover{
     text-decoration: none;
-    color: #f99b0d;
+    color: #00462a;
 }
 
 .container{
@@ -128,7 +128,7 @@ a {
 .msg-mine-content{
     width: 70%; 
     float: right; 
-    background-color: #f99b0d; 
+    background-color: #00462a; 
     color: white; 
     border-radius: 10px; 
     padding: 10px;
@@ -220,7 +220,7 @@ a {
 }
 .progress-bar {
     border-radius: 7px;
-    background-color: #f99b0d;
+    background-color: #00462a;
 }
 .mate-quest-card-row{
     width: 100%;
@@ -239,7 +239,7 @@ a {
     width: 100%;
     height: 100%;
     padding-top: 30px;
-    background-color: #f99b0d;
+    background-color: #00462a;
     color: white;
     border-radius: 10px;
 }
@@ -247,7 +247,7 @@ a {
     width: 100%;
     height: 100%;
     padding-top: 30px;
-    background-color: #f99b0da9;
+    background-color: #00462a;
     color: white;
     border-radius: 10px;
 }

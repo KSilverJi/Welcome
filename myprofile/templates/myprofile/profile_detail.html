@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block extra-style %}<link rel="stylesheet" type="text/css" href="{% static 'css/myprofile_style.css' %}">{% endblock %}
-{% block title %}Be.com - 프로필{% endblock %}
+{% block title %}Welcame_프로필{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -19,8 +19,7 @@
                 <!--<div class="mb-1 text-muted">Nov 12</div>-->
                 <div class="my-profile-intro"><br><br>
                     <b>이름</b> &nbsp; {{person.username}}<br>
-                    <b>학교</b> &nbsp; {{person.school}}<br>
-                    <b>학급</b> &nbsp; {{person.school_year}}학년 {{person.school_class}}반<br>
+                    <b>학급</b> &nbsp; {{person.school_class}}분반<br>
                     <b>소개</b> &nbsp; {{person.intro}}<br><br><br></p>
                 <!--<a href="#" class="stretched-link">Continue reading</a>-->
                 </div>

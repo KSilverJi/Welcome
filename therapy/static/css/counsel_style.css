@@ -157,7 +157,7 @@ button:active{
 }
 
 .submit-btn {
-    background: #F99B0D;
+    background: #00462a;
     border: 0.5px solid #D1CCC6;
     box-sizing: border-box;
     border-radius: 10px;
@@ -181,7 +181,7 @@ input[type=radio] { display:none; }
 
 
 input[type=radio] + label { 
-    width: 169px;
+    width: 130px;
     height: 57px;
     display:inline-block;
 
@@ -192,8 +192,8 @@ input[type=radio] + label {
     padding: 5px;
     margin: 4%;
     margin-left: 1%;
-    margin-top: 2%;
-    margin-bottom: 4%;
+    margin-top: 1%;
+    margin-bottom: 2%;
     justify-content: center;
 
     cursor: pointer;
@@ -209,28 +209,8 @@ input[type=radio] + label {
 
 input[type="radio"]:checked + label{
     background: #FFFFFF;
-    border: 1px solid #F99B0D;
-    color: #F99B0D;
-}
-
-.teacher input[type=radio] + label { 
-    width: 110px;
-    height: 115px;
-    margin-right: 3px;
-    margin-left: 0px;
-    font-family: Noto Sans KR;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 17px;
-}
-
-.teacher-img {
-    border-radius:50%;
-    border: 0.75px solid #C4C4C4;
-    box-sizing: border-box;
-    object-fit: cover;
-    margin-bottom: 6px;
+    border: 1px solid #00462a;
+    color: #00462a;
 }
 
 input[type=checkbox] { display:none; } 
@@ -263,8 +243,8 @@ input[type=checkbox] + label {
 
 input[type="checkbox"]:checked + label{
     background: #FFFFFF;
-    border: 1px solid #F99B0D;
-    color: #F99B0D;
+    border: 1px solid #00462a;
+    color: #00462a;
 }
 
 .input-text {

@@ -16,10 +16,7 @@ def result(request):
     if request.method == "POST":
         counsel=Counsel()
         counsel.username = User.objects.get(username=request.user.username)
-
         counsel.who = request.POST.get('who')
-        counsel.how = request.POST.get('how')
-        counsel.teacher = request.POST.get('teacher').rstrip(' 선생님')
         counsel.detailtext = request.POST.get('detailtext', '')
         counsel.about = request.POST.getlist('about[]')
 

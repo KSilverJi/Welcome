@@ -5,9 +5,9 @@
 
 {% block content %}
 
-    <h1>로그인</h1>
-    <span class="font-italic">아이디와 패스워드를 입력해주세요.</span>
-    &nbsp;&nbsp;<span><a href="{% url 'register' %}">회원가입하기</a></span>
+    <h1>Welcome, 로그인하세요!</h1>
+    <span class="font-italic">Welcome to our Campus! 웰캠에 어서오세요</span>
+    &nbsp;&nbsp;<span><a href="{% url 'register' %}">처음이세요?</a></span>
 
     {% if form.errors %}
     <div class="alert alert-danger">
@@ -16,15 +16,15 @@
     </div>
     {% endif %}
 
-    <form action="." method="post" class="card pt-3">{% csrf_token %}
+    <form action="." method="post" class="card pt-3" style="margin-top:5vh;">{% csrf_token %}
 
-        <div class="form-group row">
+        <div class="form-group row" style="justify-content:center;">
             {{ form.username|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
                 {{ form.username|add_class:"form-control"|attr:"autofocus" }}
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" style="justify-content:center;">
             {{ form.password|add_label_class:"col-form-label col-sm-2 ml-3 font-weight-bold" }}
             <div class="col-sm-5">
                 {{ form.password|add_class:"form-control" }}
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <div class="offset-sm-2 col-sm-5">
+            <div class="offset-sm-2 col-sm-5" style="float:right;">
                 <input type="submit" value="로그인" class="btn btn-info"/>
                 <input type="hidden" name="next" value="{{ next }}" />
             </div>

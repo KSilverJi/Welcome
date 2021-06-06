@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block extra-style %}<link rel="stylesheet" type="text/css" href="{% static 'css/myprofile_style.css' %}">{% endblock %}
-{% block title %}Be.com - 프로필{% endblock %}
+{% block title %}Welcame_프로필{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -17,32 +17,8 @@
         <!--<div class="mb-1 text-muted">Nov 12</div>-->
         <div class="my-profile-intro">
           <b>이름</b> &nbsp; {{my.username}}<br>
-          <b>학교</b> &nbsp; {{my.school}}<br>
-          <b>학급</b> &nbsp; {{my.school_year}}학년 {{my.school_class}}반<br>
+          <b>분반</b> &nbsp; {{my.school_class}}분반<br>
           <b>소개</b> &nbsp; {{my.intro}}</p>
-        </div>
-      </div>
-    </div>
-    <div class="class-achievement row">
-      <div class="profile-title">우리 반 활성도</div>
-      <div class="class-level">LEVEL{{class_level}}</div>
-      <div class="class-score-text">{{class_score_text}}</div>
-      <div class="class-level-img">
-        {% if class_level == 1 %}
-          <img src="{% static 'img/level1.png' %}" width="100px" alt="우리 반의 활성도">
-        {% elif class_level == 2 %}
-          <img src="{% static 'img/level2.png' %}" width="100px" alt="우리 반의 활성도">
-        {% elif class_level == 3 %}
-          <img src="{% static 'img/level3.png' %}" width="100px" alt="우리 반의 활성도">
-        {% elif class_level == 4 %}
-          <img src="{% static 'img/level4.png' %}" width="100px" alt="우리 반의 활성도">
-        {% elif class_level == 5 %}
-          <img src="{% static 'img/level5.png' %}" width="100px" alt="우리 반의 활성도">
-        {% endif %}
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{{class_score}}%">
-          {{class_score}}%
         </div>
       </div>
     </div>
@@ -50,7 +26,7 @@
     
   <div class="col2">
     <div class="friends">
-      <div class="profile-title" style="margin:24px;">반 친구들</div>
+      <div class="profile-title" style="margin:24px;">우리분반 동기들</div>
       <div class="friends-list">
         {% for friend in class_friends.all %}
           <div class="friend-card">
@@ -58,7 +34,7 @@
               <img src="{{friend.profile_image.url}}" width="80" height="80" style="border-radius:40px; border: 0.75px solid #C4C4C4;">
               <div style="font-size:14px; font-weight:500; line-height: 20px; margin-top:8px;">{{friend.username}}</div>
             </a>
-            <div style="height: 1px; background-color: #f99b0d; margin:5px;"></div>
+            <div style="height: 1px; background-color: #00462a; margin:5px;"></div>
             <div style="font-weight: normal; font-size:12px;">{{friend.intro}}</div>
           </div>
         {% endfor %}

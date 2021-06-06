@@ -6,7 +6,7 @@ a {
   }
   a:hover{
     text-decoration: none;
-    color: #f99b0d;
+    color: #00462a;
   }
   
 .container{
@@ -76,7 +76,7 @@ a {
     float: right;
 }
 .diary_submit_button{
-    background-color: #f99b0d;
+    background-color: #00462a;
     border: none;
     color: white;
     width: 104px;
